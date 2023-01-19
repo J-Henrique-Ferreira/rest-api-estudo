@@ -1,30 +1,26 @@
-const posts = [
-  {
-    id: "dffdggda",
-    title: "Teste do mural",
-    descrition: "Descrição de teste",
-  },
-];
-
 const generateId = () => {
   return Math.random().toString(36).substring(2, 9);
 };
 
-class postsController {
-  static postsAll = (req, res) => {
-    res.send(posts);
-  };
+const postsController = {
+  posts: [
+    {
+      id: "dffdggda",
+      title: "Teste do mural",
+      descrition: "Descrição de teste",
+    },
+  ],
 
-  static newPost = (req, res) => {
-    let newPostData = {
-      id: generateId(),
-      title: req.body.title,
-      description: req.body.description,
-    };
-    posts.push(newPostData);
+  postsAll() {
+    return this.posts;
+  },
 
-    res.send("Post adicionado com sucesso");
-  };
-}
+  newPost(title, description) {
+    id: generateId();
+
+    this.posts.push({ id: generateId, title, description });
+    return "Post adicionado com sucesso";
+  },
+};
 
 module.exports = postsController;
