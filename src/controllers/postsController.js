@@ -2,7 +2,7 @@ const posts = [
   {
     id: "dffdggda",
     title: "Teste do mural",
-    descrition: "Descrição de teste",
+    description: "Descrição de teste",
   },
 ];
 
@@ -21,6 +21,8 @@ class postsController {
       title: req.body.title,
       description: req.body.description,
     };
+
+    console.log(req.body);
     posts.push(newPostData);
 
     res.send("Post adicionado com sucesso");
